@@ -15,8 +15,9 @@ export default function Todos (): React.JSX.Element {
 
   const load = (): void => {
     setIsLoading(true)
-    graphqlClient.graphql({ query: listTodos })
+    graphqlClient.graphql({ query: listTodos, authMode: 'userPool' })
       .then((result) => {
+        console.log('result:', result)
         setTodos(result.data.listTodos.items.sort((a, b) => {
           if (a.createdAt == null || b.createdAt == null) return 0
           if (a.createdAt < b.createdAt) return -1
@@ -51,7 +52,8 @@ export default function Todos (): React.JSX.Element {
     try {
       await graphqlClient.graphql({
         query: createTodo,
-        variables: { input: data }
+        variables: { input: data },
+        authMode: 'userPool'
       })
       setName('')
       setDescription('')
@@ -131,6 +133,7 @@ export default function Todos (): React.JSX.Element {
               </td>
             </tr>
           ))}
+
           <tr>
             <td>
               <Form.Control type='text' placeholder='Enter name' value={name} onChange={(event) => { setName(event.target.value) }} />
