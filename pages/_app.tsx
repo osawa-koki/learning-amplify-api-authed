@@ -21,7 +21,7 @@ import { Alert } from 'react-bootstrap'
 
 Amplify.configure(awsconfig)
 
-export function App ({ user, signOut, Component }: WithAuthenticatorProps & { pageProps: any, Component: NextComponentType<NextPageContext, any, any> }): React.JSX.Element {
+function App ({ user, signOut, Component }: WithAuthenticatorProps & { pageProps: any, Component: NextComponentType<NextPageContext, any, any> }): React.JSX.Element {
   if (user == null) {
     return (
       <Alert variant='danger'>
