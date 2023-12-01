@@ -25,5 +25,32 @@
         "learningamplifyapiau": {}
       }
     }
+  },
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-learningamplifyapiau-prod-213135-authRole",
+      "UnauthRoleArn": "arn:aws:iam::938385028059:role/amplify-learningamplifyapiau-prod-213135-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::938385028059:role/amplify-learningamplifyapiau-prod-213135-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-learningamplifyapiau-prod-213135-deployment",
+      "UnauthRoleName": "amplify-learningamplifyapiau-prod-213135-unauthRole",
+      "StackName": "amplify-learningamplifyapiau-prod-213135",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:938385028059:stack/amplify-learningamplifyapiau-prod-213135/92b9fe30-9045-11ee-ba29-06d1078ab789",
+      "AmplifyAppId": "d2yjeo3piiduei"
+    },
+    "categories": {
+      "auth": {
+        "learningamplifyapiau8a885f2f": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2yjeo3piiduei",
+          "type": "manual"
+        }
+      },
+      "api": {
+        "learningamplifyapiau": {}
+      }
+    }
   }
 }
