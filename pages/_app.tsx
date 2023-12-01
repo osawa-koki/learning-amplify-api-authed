@@ -1,25 +1,27 @@
-import React, { useEffect } from 'react'
-import { type NextComponentType, type NextPageContext } from 'next'
-import { type AppProps } from 'next/app'
-import Head from 'next/head'
-
 import '@aws-amplify/ui-react/styles.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import '../styles/style.scss'
 import '../styles/menu.scss'
 
+import React, { useEffect } from 'react'
+import { type NextComponentType, type NextPageContext } from 'next'
+import { type AppProps } from 'next/app'
+import Head from 'next/head'
+
+import { Amplify } from 'aws-amplify'
+import { generateClient } from 'aws-amplify/api'
+import { type WithAuthenticatorProps, withAuthenticator } from '@aws-amplify/ui-react'
+
+import { Alert } from 'react-bootstrap'
+
 import setting from '../setting'
 import Layout from '../components/Layout'
 
-import { Amplify } from 'aws-amplify'
-import type { WithAuthenticatorProps } from '@aws-amplify/ui-react'
-import { withAuthenticator } from '@aws-amplify/ui-react'
-
 import awsconfig from '../src/aws-exports'
-import { Alert } from 'react-bootstrap'
 
 Amplify.configure(awsconfig)
+export const graphqlClient = generateClient()
 
 function App ({ user, signOut, Component }: WithAuthenticatorProps & { pageProps: any, Component: NextComponentType<NextPageContext, any, any> }): React.JSX.Element {
   if (user == null) {
